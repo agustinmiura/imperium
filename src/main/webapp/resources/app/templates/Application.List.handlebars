@@ -1,0 +1,20 @@
+{{#each applications}}
+    <tr class="sucess" id="{{id}}">
+        <td attribute="id" value="{{id}}" class="notVisible"></td>
+        <td attribute="name" >{{name}}</td>
+        <td attribute="description">{{description}}</td>
+        <td>                     
+          <div class="btn-group">
+             <a class="btn" href="#">
+                <i applicationId="{{id}}" action="magicAction" class="icon-magic"></i>
+             </a> 
+            <a class="btn" href="#">
+                <i applicationId="{{id}}" action="pencilAction" class="icon-pencil"></i>
+            </a>
+            <a>
+                <i applicationId="{{id}}" action="editAction" class="icon-edit"></i>
+            </a>
+          </div>
+        </td>                           
+    </tr>
+{{/each}}

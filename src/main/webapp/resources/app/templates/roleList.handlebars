@@ -1,0 +1,23 @@
+{{#each roles}}
+    <tr class="success" data-id="{{id}}">
+        <td data-attribute="name">{{name}}</td>
+        <td data-attribute="description">{{description}}</td>
+        <td>
+            <a class="btn" href="#">
+                <i data-id="{{id}}" data-action="magicAction" class="icon-magic"></i>
+            </a> 
+            <a class="btn" href="#">
+                <i data-id="{{id}}" data-action="removeAction" class="icon-remove"></i>
+            </a> 
+            <a class="btn" href="#">
+                <i data-id="{{id}}" data-action="bookAction" class="icon-book"></i>
+            </a> 
+            <a class="btn" href="#">
+                <i data-id="{{id}}" data-action="pencilAction" class="icon-pencil"></i>
+            </a>
+            <a>
+            <i data-id="{{id}}" data-action="editAction" class="icon-edit"></i>
+            </a>
+        </td>
+    </tr>
+{{/each}}

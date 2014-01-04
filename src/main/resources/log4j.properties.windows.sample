@@ -1,0 +1,121 @@
+#This is a sample log4j.properties file for windows .
+# Direct log messages to stdout
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.Target=System.out
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+log4j.appender.stdout.layout.ConversionPattern=%d{ABSOLUTE} %5p %c{1}:%L - %m%n
+
+#Custom logger for log4j
+log4j.appender.custom=org.apache.log4j.RollingFileAppender
+log4j.appender.custom.File=C:\\imperium\\logs\\custom.log
+log4j.appender.custom.MaxFileSize=100MB
+log4j.appender.custom.MaxBackupIndex=1
+log4j.appender.custom.layout=org.apache.log4j.PatternLayout
+log4j.appender.custom.layout.ConversionPattern=%d{ABSOLUTE} %5p %c{1}:%L - %m%n
+
+# Direct log messages to a log file
+log4j.appender.file=org.apache.log4j.RollingFileAppender
+log4j.appender.file.File=C:\\imperium\\logs\\default.log
+log4j.appender.file.MaxFileSize=100MB
+log4j.appender.file.MaxBackupIndex=1
+log4j.appender.file.layout=org.apache.log4j.PatternLayout
+log4j.appender.file.layout.ConversionPattern=%d{ABSOLUTE} %5p %c{1}:%L - %m%n
+ 
+#For spring data
+log4j.appender.spring_data_framework=org.apache.log4j.RollingFileAppender
+log4j.appender.spring_data_framework.File=${catalina.home}/logs/spring_data.log
+log4j.appender.spring_data_framework.MaxFileSize=100MB
+log4j.appender.spring_data_framework.MaxBackupIndex=1
+log4j.appender.spring_data_framework.layout=org.apache.log4j.PatternLayout
+log4j.appender.spring_data_framework.layout.ConversionPattern=%d{ABSOLUTE} %5p %c{1}:%L - %m%n
+ 
+#For Spring core framework 
+log4j.appender.spring_core_framemework=org.apache.log4j.RollingFileAppender
+log4j.appender.spring_core_framemework.File=C:\\imperium\\logs\\spring_core.log
+log4j.appender.spring_core_framemework.MaxFileSize=100MB
+log4j.appender.spring_core_framemework.MaxBackupIndex=1
+log4j.appender.spring_core_framemework.layout=org.apache.log4j.PatternLayout
+log4j.appender.spring_core_framemework.layout.ConversionPattern=%d{ABSOLUTE} %5p %c{1}:%L - %m%n
+ 
+#For Spring core beans
+log4j.appender.spring_beans=org.apache.log4j.RollingFileAppender
+log4j.appender.spring_beans.File=C:\\imperium\\logs\\spring_beans.log
+log4j.appender.spring_beans.MaxFileSize=100MB
+log4j.appender.spring_beans.MaxBackupIndex=1
+log4j.appender.spring_beans.layout=org.apache.log4j.PatternLayout
+log4j.appender.spring_beans.layout.ConversionPattern=%d{ABSOLUTE} %5p %c{1}:%L - %m%n
+ 
+#For Spring context
+log4j.appender.spring_core_framemework=org.apache.log4j.RollingFileAppender
+log4j.appender.spring_core_framemework.File=C:\\imperium\\logs\\spring_context.log
+log4j.appender.spring_core_framemework.MaxFileSize=100MB
+log4j.appender.spring_core_framemework.MaxBackupIndex=1
+log4j.appender.spring_core_framemework.layout=org.apache.log4j.PatternLayout
+log4j.appender.spring_core_framemework.layout.ConversionPattern=%d{ABSOLUTE} %5p %c{1}:%L - %m%n
+
+#For Spring web 
+log4j.appender.spring_web=org.apache.log4j.RollingFileAppender
+log4j.appender.spring_web.File=C:\\imperium\\logs\\spring_web.log
+log4j.appender.spring_web.MaxFileSize=100MB
+log4j.appender.spring_web.MaxBackupIndex=1
+log4j.appender.spring_web.layout=org.apache.log4j.PatternLayout
+log4j.appender.spring_web.layout.ConversionPattern=%d{ABSOLUTE} %5p %c{1}:%L - %m%n
+ 
+#For Spring contexct
+log4j.appender.spring_context=org.apache.log4j.RollingFileAppender
+log4j.appender.spring_context.File=C:\\imperium\\logs\\spring_web.log
+log4j.appender.spring_context.MaxFileSize=100MB
+log4j.appender.spring_context.MaxBackupIndex=1
+log4j.appender.spring_context.layout=org.apache.log4j.PatternLayout
+log4j.appender.spring_context.layout.ConversionPattern=%d{ABSOLUTE} %5p %c{1}:%L - %m%n
+ 
+#For the webapp
+log4j.appender.webapp=org.apache.log4j.RollingFileAppender
+log4j.appender.webapp.File=C:\\imperium\\logs\\webapp.log
+log4j.appender.webapp.MaxFileSize=100MB
+log4j.appender.webapp.MaxBackupIndex=1
+log4j.appender.webapp.layout=org.apache.log4j.PatternLayout
+log4j.appender.webapp.layout.ConversionPattern=%d{ABSOLUTE} %5p %c{1}:%L - %m%n
+
+###########################################
+#Log levels
+#TRACE,
+#DEBUG,
+#INFO,
+#WARN,
+#ERROR,
+#FATAL
+###########################################
+
+# Root logger option
+log4j.rootLogger=DEBUG, stdout, file
+
+#For the webapp
+log4j.logger.ar.com.imperium=DEBUG, webapp, custom
+log4j.additivity.org.springframework.core=false
+
+#Third party logging
+
+#for spring framework
+log4j.logger.org.springframework.core=FATAL, stdout,spring_core_framemework
+log4j.additivity.org.springframework.core=false
+
+#for spring beans
+log4j.logger.org.springframework.beans=FATAL, stdout, spring_beans
+log4j.additivity.org.springframework.beans=false
+
+#for spring context
+log4j.logger.org.springframework.context=FATAL, stdout, spring_context
+log4j.additivity.org.springframework.context=false
+
+#for spring web
+log4j.logger.org.springframework.web=DEBUG, stdout, spring_web
+log4j.additivity.org.springframework.web=false
+
+#For spring data
+log4j.logger.org.springframework.orm=FATAL, stdout, spring_data_framework
+log4j.logger.org.springframework.orm=false
+
+
+
+

@@ -1,0 +1,186 @@
+<%@ include file="/WEB-INF/views/fragment/jspHeader.jsp"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--
+/**
+ * Copyright 2013 Agustín Miura <"agustin.miura@gmail.com">
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+-->
+<head>
+<title>Imperium application</title>
+<%@ include file="/WEB-INF/views/fragment/baseCss.jsp"%>
+<%@ include file="/WEB-INF/views/fragment/baseJs.jsp"%>
+<%@ include file="/WEB-INF/views/fragment/baseWidgets.jsp"%>
+<script src="/imperium/resources/app/view/role/EditPermission.js"></script>
+</head>
+<body>
+    <div
+        id="information"
+        class="notVisible"
+        data-application-id="<c:out value="${applicationId}"/>"
+        data-role-id="<c:out value="${roleId}"/>"
+        data-role-name="<c:out value="${roleName}"/>"
+        data-role-description="<c:out value="${roleDescription}"/>"></div>
+
+    <!-- Handle bars templates -->
+    <script
+        id="handlebarTemplate_grid_actions"
+        type="text/x-handlebars-template">
+        <div id="{{actionHolderId}}" class="btn-group">
+             <a class="btn" href="#">
+                <i data-id="{{id}}" data-type="{{type}}" data-action="magicAction" class="icon-magic"></i>
+             </a> 
+            <a class="btn" href="#">
+                <i data-id="{{id}}" edata-type="{{type}}" data-action="removeAction" class="icon-remove"></i>
+            </a> 
+            <a class="btn" href="#">
+                <i data-id="{{id}}" data-type="{{type}}" data-action="bookAction" class="icon-book"></i>
+            </a> 
+            <a class="btn" href="#">
+                <i data-id="{{id}}" data-type="{{type}}" data-action="pencilAction" class="icon-pencil"></i>
+            </a>
+            <a class="btn" href="#">
+                <i data-id="{{id}}" data-type="{{type}}" data-action="editAction" class="icon-edit"></i>
+            </a>
+        </div>
+    </script>
+    <!-- End of handle bars templates -->
+    <!-- End of modal forms -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                <%@ include file="/WEB-INF/views/fragment/topMenu.jsp"%>
+                <%@ include file="/WEB-INF/views/fragment/userMenu.jsp"%>
+                <%@ include file="/WEB-INF/views/fragment/adminMenu.jsp"%>
+            </div>
+        </div>
+    </div>
+    <!-- Content -->
+    <div
+        id="main-content"
+        class="container-fluid">
+        <div class="row-fluid">
+            <div class="span10 offset2">
+                <h4>
+                    Assign permissions to the role with name :
+                    <c:out value="${roleName}" />
+                </h4>
+            </div>
+        </div>
+        <div id="permissionSelector">
+            <div id="selectorPluginId10">
+                <div class="row-fluid">
+                    <div class="span2">
+                        <div class="btn-group">
+                            <button
+                                id="addAllButton"
+                                class="btn">Add all</button>
+                            <button
+                                id="addSelectedButton"
+                                class="btn">Add selected</button>
+                        </div>
+                    </div>
+                    <div class="span6 offset4">
+                        <button
+                            id="removeSelectedButton"
+                            class="btn">Remove selected</button>
+                    </div>
+                </div>
+                </br>
+                <div class="row-fluid">
+                    <div
+                        class="span6"
+                        id="filterToSearchContainer">
+                        <form
+                            id="filterToSelectForm"
+                            class="form-search">
+                            <input
+                                type="text"
+                                class="search-query"
+                                name="toSearchText">
+                                <button
+                                    type="submit"
+                                    id="doSearchButton"
+                                    class="btn">Search</button>
+                        </form>
+                    </div>
+                    <div
+                        class="span6"
+                        id="filterSelectionContainer">
+                        <form id="filterSelectionForm">
+                            <input
+                                type="text"
+                                class="search-query"
+                                name="query">
+                                <button
+                                    type="submit"
+                                    id="doUserSelectionSearchButton"
+                                    class="btn">Search</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span6">
+                        <h4>Permissions available</h4>
+                    </div>
+                    <div class="span6">
+                        <h4>Selected</h4>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div
+                        class="span6"
+                        id="showAvailableContainer">
+                        <table
+                            class="table table-striped table-bordered"
+                            id="showAvailableTable">
+                            <thead>
+                                <tr>
+                                    <th>Resource</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div
+                        class="span6"
+                        id="userSelectionContainer">
+                        <table
+                            width="100%"
+                            id="userSelection"
+                            class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Permission</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div
+            class="container"
+            style="margin-top: 10px"></div>
+    </div>
+</body>
+</html>

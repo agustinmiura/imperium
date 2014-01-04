@@ -1,0 +1,19 @@
+
+# Properties file with JDBC-related settings applied by PropertyPlaceholderConfigurer.
+
+jdbc.driverClassName=com.mysql.jdbc.Driver
+jdbc.url=jdbc:mysql://127.0.0.1:10000/imperium
+jdbc.username=root
+jdbc.password=password
+
+hibernate.show_sql=true
+hibernate.jdbc.fetch_size=50
+hibernate.jdbc.batch_size=5
+hibernate.max_fetch_depth=3
+hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
+#########################################################
+#Possible values here are
+#validate, create, update , create-drop
+#
+########################################################
+hibernate.hbm2ddl.auto=validate

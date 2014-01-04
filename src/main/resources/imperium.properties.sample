@@ -1,0 +1,6 @@
+audit.record.history.days=30
+default.page=0
+default.pageSize=25
+application.default.sort.order="name"
+permission.default.sort.order="resource"
+role.default.sort.order="name"

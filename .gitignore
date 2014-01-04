@@ -1,0 +1,12 @@
+target
+.settings
+.springbeans
+.classpath
+.project
+.springBeans
+*.properties
+*.backup
+*.log
+
+files
+libs

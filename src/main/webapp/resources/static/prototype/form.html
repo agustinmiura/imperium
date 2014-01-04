@@ -1,0 +1,101 @@
+<%@ include file="/WEB-INF/views/fragment/jspHeader.jsp"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Imperium application</title>
+<link
+	href="/imperium/resources/bootstrap/css/bootstrap.css" />
+" rel="stylesheet" type="text/css" />
+<link
+	href="/imperium/resources/css/body.css" />
+" rel="stylesheet" type="text/css" />
+<link
+	rel="stylesheet"
+	type="text/css"
+	href="<c:url value=" /resources/bootstrap/css/bootstrap-responsive.css" />
+" />
+<link
+	rel="stylesheet"
+	type="text/css"
+	href="<c:url value=" /resources/bootstrap/css/font-awesome.css" />
+" />
+<link
+	rel="stylesheet"
+	type="text/css"
+	href="<c:url value=" /resources/css/main.css" />
+" />
+<link
+	rel="stylesheet"
+	type="text/css"
+	href="<c:url value=" /resources/css/custom.css" />
+" />
+</head>
+<body>
+	<div
+		id="information"
+		data-application-id="<c:out value=" ${application.id}"/>
+	" data-application-name="
+	<c:out value="${application.name}" />
+	" data-application-description="
+	<c:out value="${application.description}" />
+	" class="notVisible">
+	</div>
+	</div>
+
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container-fluid"><%@ include
+				file="/WEB-INF/views/fragment/topMenu.jsp"%> <%@ include
+				file="/WEB-INF/views/fragment/userMenu.jsp"%> <%@ include
+				file="/WEB-INF/views/fragment/adminMenu.jsp"%></div>
+		</div>
+	</div>
+
+	<div
+		id="main-content"
+		class="container-fluid">
+		<div class="row-fluid">
+			<div
+				class="span2"
+				id="left-side"></div>
+			<div
+				class="span8"
+				id="center-side">
+				<div class="text-center">
+					<h4>
+						<c:if test="${application.id >=0}">
+                                    Application edit
+                         </c:if>
+						<c:if test="${application.id<=-1}">
+                                    Application creation
+                                    </c:if>
+					</h4>
+				</div>
+				<div id="formContainer">
+
+					<!-- Edit an application -->
+					<c:if test="${application.id >=0}">
+                        <%@ include
+                            file="/WEB-INF/views/fragment/application/editForm.jsp"%>
+                    </c:if>
+
+					<!-- Add an application -->
+					<c:if test="${application.id<=-1}">
+                        <%@ include
+                            file="/WEB-INF/views/fragment/application/addForm.jsp"%>
+                    </c:if>
+				</div>
+			</div>
+			<div
+				class="span2"
+				id="right-side"></div>
+		</div>
+	</div>
+	<div class="footer">
+		<div class="container">
+			<p class="muted credit"></p>
+		</div>
+	</div>
+</body>
+</html>

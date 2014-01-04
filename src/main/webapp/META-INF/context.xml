@@ -1,0 +1,6 @@
+<Context path="/imperium">
+<Loader
+    loaderClass="org.springframework.instrument.classloading.tomcat.TomcatInstrumentableClassLoader"
+    useSystemClassLoaderAsParent="false" 
+    />
+</Context>
